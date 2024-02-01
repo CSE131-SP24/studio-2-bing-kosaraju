@@ -16,7 +16,10 @@ public class Ruin {
 	System.out.println("How many days would you like to play?");
 	int totalSimulations = in.nextInt();
 for (int i = 0; i<totalSimulations;i++)
-{ int daily = startAmount;
+{ 
+	int daily = startAmount;
+int numLoss = 0;
+int numWin = 0;
 while ((daily>0) && (daily<winLimit))
 {
 	double rnd = Math.random();
@@ -25,19 +28,21 @@ while ((daily>0) && (daily<winLimit))
 	{
 		
 	daily= (daily-1); 
-System.out.println("Win: Current money " + daily);
+numWin = numWin++;
 		
 	}
 	else 
 	{
 		daily = (daily+1);
-		System.out.println("Loss: Current money " + daily);
+		numLoss = numLoss++;
 	
 	}
 }
+System.out.println("Simulation" + i + ": " + numLoss + "LOSE");
 
 }
 System.out.println("Days played: " + totalSimulations);
+
 
 	
 	}
